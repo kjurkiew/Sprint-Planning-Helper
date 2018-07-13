@@ -1,4 +1,4 @@
-# task_1
+# scrum_helper
 
 Script, that will find the most efficient set of tasks to be taken from the
 pool of groomed tasks.
