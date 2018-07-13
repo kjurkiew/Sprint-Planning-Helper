@@ -8,11 +8,9 @@ from sys import argv, stdout
 def collecting_data_from_csv(file_name):
     with open(file_name, 'r', encoding='utf-8') as csvfile:
         data_from_csv = csv.DictReader(csvfile)
-
         task_id = []
         story_points = {}
         KSP = {}
-
         for row in data_from_csv:
             task_id.append(int(row['task_id']))
             story_points.update({int(row['task_id']): int(row['story_points'])})
@@ -22,6 +20,7 @@ def collecting_data_from_csv(file_name):
 
 
 def initialize_result_array(task_id, velocity):
+    # result array for solving knapsack problem
     result = []
     for i in range(len(task_id) + 1):
         result.append([0 for j in range(velocity + 1)])
@@ -29,7 +28,10 @@ def initialize_result_array(task_id, velocity):
     return result
 
 
-def knapsack(array,data_from_csv, velocity):
+def knapsack(array, data_from_csv, velocity):
+    # A naive recursive implementation of 0-1 Knapsack Problem
+    # Normally this function returns the maximum value that can be put in a knapsack
+    # In this case function find most efficient set of tasks to be taken
     story_points = data_from_csv[1]
     KSP = data_from_csv[2]
     left_id = len(story_points)
@@ -37,10 +39,17 @@ def knapsack(array,data_from_csv, velocity):
 
     for ids in range(left_id + 1):
         for v in range(velocity + 1):
+            # Base Case
             if ids == 0 or v == 0:
                 array[ids][v] = 0
+            # If value of the ids item is lower than left velocity
+            # Return the maximum of two cases:
+            # 1 - element ids inculded
+            # 2 - element idsc not inculded
             elif story_points[ids - 1] <= v:
                 array[ids][v] = max(KSP[ids - 1] + array[ids - 1][v - story_points[ids - 1]], array[ids - 1][v])
+            # If value of the element is higher then left velocity
+            # then this item cannot be included in the optimal soulution
             else:
                 array[ids][v] = array[ids-1][v]
 
