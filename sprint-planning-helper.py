@@ -76,7 +76,6 @@ def conv_list_to_string(output_tasks_list):
     return output_tasks
 
 
-
 if __name__ == '__main__':
     arguments = argv
     file_name = arguments[1]
