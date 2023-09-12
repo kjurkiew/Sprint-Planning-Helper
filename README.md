@@ -16,3 +16,6 @@ sprint_planning_helper.py csv_with_tasks.csv 13
 ```
 
 In this example, the script will read task data from the tasks.csv file and attempt to find the most efficient set of tasks with a total story point value that does not exceed the team's velocity of 13.
+
+## Algorithm
+The script uses the knapsack algorithm to optimize task selection based on story points and KSP values. It dynamically calculates the most efficient set of tasks to maximize the total KSP within the given velocity constraint.
