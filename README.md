@@ -2,6 +2,9 @@
 
 Sprint Planning Helper is a Python script that helps you find the most efficient set of tasks to be taken from a pool of groomed tasks. It leverages the knapsack algorithm to optimize task selection based on story points and a team's velocity.
 
+## Algorithm
+The script uses the knapsack algorithm to optimize task selection based on story points and KSP values. It dynamically calculates the most efficient set of tasks to maximize the total KSP within the given velocity constraint.
+
 ## Usage
 
 The script can be executed from the command line by providing two arguments:
@@ -16,6 +19,3 @@ sprint_planning_helper.py csv_with_tasks.csv 13
 ```
 
 In this example, the script will read task data from the tasks.csv file and attempt to find the most efficient set of tasks with a total story point value that does not exceed the team's velocity of 13.
-
-## Algorithm
-The script uses the knapsack algorithm to optimize task selection based on story points and KSP values. It dynamically calculates the most efficient set of tasks to maximize the total KSP within the given velocity constraint.
