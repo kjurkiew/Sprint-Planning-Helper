@@ -1,4 +1,4 @@
-# planning_helper.py - finding the most efficient set of tasks to be taken from the file
+# sprint_planning_helper.py - finding the most efficient set of tasks to be taken from the file
 
 import csv
 import sys
